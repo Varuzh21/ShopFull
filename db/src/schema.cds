@@ -17,8 +17,8 @@ entity Categoris : cuid {
 }
 
 entity User : cuid {
-    firstName: String;
-    lastName: String;
+    name: String;
+    password: String;
     role: String;
     payment: Association to Payment;
 }
