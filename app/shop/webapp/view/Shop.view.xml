@@ -1,7 +1,87 @@
-<mvc:View controllerName="com.shop.shop.controller.Shop"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+<mvc:View
+    controllerName="com.shop.shop.controller.Shop"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:ux="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="dynamicPageId"
+        toggleHeaderOnTitleClick="false"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+                <f:heading>
+                    <Title
+                        id="_IDGenTitle1"
+                        text="Categoris"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:content>
+            <Table
+                id="categorisTable"
+                mode="SingleSelectMaster"
+                itemPress=".onNavigate"
+                inset="false"
+                items="{
+					path: '/Categoris',
+                    sorter: {path: 'name'}
+				}"
+                class="sapFDynamicPageAlignContent"
+                width="auto"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="4">
+                        <ToolbarSpacer id="7" />
+                        <SearchField
+                            id="5"
+                            search=".onSearch"
+                            width="17.5rem"
+                        />
+                        <OverflowToolbarButton
+                            id="6"
+                            icon="sap-icon://add"
+                            type="Transparent"
+                            press=".onAdd"
+                        />
+                        <OverflowToolbarButton
+                            id="_IDGenOverflowToolbarButton1"
+                            icon="sap-icon://sort"
+                            type="Transparent"
+                            press="onSort"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column
+                        id="_IDGenColumn1"
+                        width="12em"
+                    >
+                        <Text
+                            id="_IDGenText1"
+                            text="Categoris"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        type="Navigation"
+                    >
+                        <cells>
+                            <ObjectIdentifier
+                                id="_IDGenObjectIdentifier1"
+                                text="{name}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>

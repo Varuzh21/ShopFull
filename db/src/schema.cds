@@ -2,18 +2,23 @@ namespace shopfull;
 
 using {cuid} from '@sap/cds/common';
 
+type images{
+    url: String;
+};
+
+
 entity Product : cuid {
    title: String;
    description: String;
-   price: String;
+   price: Double;
    rating: Integer;
-   images: String;
+   images: array of images;
    categoris: Association to Categoris;   
 }
 
 entity Categoris : cuid {
     name: String;
-    product: Association to Product on product.categoris = $self;
+    product: Association to many Product on product.categoris = $self;
 }
 
 entity User : cuid {

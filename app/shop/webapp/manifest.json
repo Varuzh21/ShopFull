@@ -92,16 +92,24 @@
         "viewType": "XML",
         "async": true,
         "viewPath": "com.shop.shop.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
+        "controlAggregation": "beginColumnPages",
+        "controlId": "fcl",
         "clearControlAggregation": false
       },
       "routes": [
         {
           "name": "RouteShop",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetShop"
+          ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "categoris/{categorisId}/{layout}",
+          "target": [
+            "TargetShop",
+            "Detail"
           ]
         }
       ],
@@ -109,9 +117,15 @@
         "TargetShop": {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "Shop",
           "viewName": "Shop"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "midColumnPages",
+          "viewId": "Detail",
+          "viewName": "Detail"
         }
       }
     },
