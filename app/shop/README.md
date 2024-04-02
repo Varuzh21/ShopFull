@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Mon Apr 01 2024 15:21:50 GMT+0400 (Armenia Standard Time)|
+|**Generation Date and Time**<br>Tue Apr 02 2024 12:15:56 GMT+0400 (Armenia Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
 |**App Generator Version**<br>1.12.5|
 |**Generation Platform**<br>Visual Studio Code|
@@ -9,8 +9,8 @@
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/shop/
 |**Module Name**<br>shop|
-|**Application Title**<br>App Shop|
-|**Namespace**<br>com.shop|
+|**Application Title**<br>App Title|
+|**Namespace**<br>com|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.122.1|
 |**Enable Code Assist Libraries**<br>False|

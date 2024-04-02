@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "com.shop.shop",
+    "id": "com.shop",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.12.5",
-      "toolsId": "27bc2b62-aea4-4400-b1ab-243f35134813"
+      "toolsId": "230471aa-2ebb-4958-90e0-91a233b731d3"
     },
     "dataSources": {
       "mainService": {
@@ -65,7 +65,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.shop.shop.i18n.i18n"
+          "bundleName": "com.shop.i18n.i18n"
         }
       },
       "": {
@@ -91,46 +91,32 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "com.shop.shop.view",
-        "controlAggregation": "beginColumnPages",
-        "controlId": "fcl",
+        "viewPath": "com.shop.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "RouteShop",
-          "pattern": "",
+          "name": "RouteMaster",
+          "pattern": ":?query:",
           "target": [
-            "TargetShop"
-          ]
-        },
-        {
-          "name": "Detail",
-          "pattern": "categoris/{categorisId}/{layout}",
-          "target": [
-            "TargetShop",
-            "Detail"
+            "TargetMaster"
           ]
         }
       ],
       "targets": {
-        "TargetShop": {
+        "TargetMaster": {
           "viewType": "XML",
           "transition": "slide",
-          "viewId": "Shop",
-          "viewName": "Shop"
-        },
-        "Detail": {
-          "viewType": "XML",
-          "transition": "slide",
-          "controlAggregation": "midColumnPages",
-          "viewId": "Detail",
-          "viewName": "Detail"
+          "clearControlAggregation": false,
+          "viewId": "Master",
+          "viewName": "Master"
         }
       }
     },
     "rootView": {
-      "viewName": "com.shop.shop.view.App",
+      "viewName": "com.shop.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

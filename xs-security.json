@@ -1,7 +1,0 @@
-{
-  "scopes": [{
-    "name": "$XSAPPNAME.Admin"
-  }],
-  "attributes": [],
-  "role-templates": []
-}

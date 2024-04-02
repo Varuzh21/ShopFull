@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="com.shop.shop.controller.Shop"
+    controllerName="com.shop.controller.Master"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -19,69 +19,70 @@
                         text="Categoris"
                     />
                 </f:heading>
+
             </f:DynamicPageTitle>
         </f:title>
 
         <f:content>
             <Table
-                id="categorisTable"
-                mode="SingleSelectMaster"
-                itemPress=".onNavigate"
-                inset="false"
-                items="{
+                    id="movieTable"
+                    mode="SingleSelectMaster"
+                    itemPress=".onNavigate"
+                    inset="false"
+                    items="{
 					path: '/Categoris',
                     sorter: {path: 'name'}
 				}"
-                class="sapFDynamicPageAlignContent"
-                width="auto"
+                    class="sapFDynamicPageAlignContent"
+                    width="auto"
             >
                 <headerToolbar>
-                    <OverflowToolbar id="4">
-                        <ToolbarSpacer id="7" />
+                    <OverflowToolbar>
+                        <ToolbarSpacer/>
                         <SearchField
-                            id="5"
-                            search=".onSearch"
-                            width="17.5rem"
+                                search="onSearch"
+                                width="17.5rem"
                         />
                         <OverflowToolbarButton
-                            id="6"
-                            icon="sap-icon://add"
-                            type="Transparent"
-                            press=".onAdd"
+                                icon="sap-icon://add"
+                                type="Transparent"
+                                press=".onAdd"
                         />
                         <OverflowToolbarButton
-                            id="_IDGenOverflowToolbarButton1"
-                            icon="sap-icon://sort"
-                            type="Transparent"
-                            press="onSort"
+                                id="_IDGenOverflowToolbarButton1"
+                                icon="sap-icon://sort"
+                                type="Transparent"
+                                press="onSort"
                         />
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
                     <Column
-                        id="_IDGenColumn1"
-                        width="12em"
+                            id="_IDGenColumn1"
+                            width="12em"
                     >
                         <Text
-                            id="_IDGenText1"
-                            text="Categoris"
+                                id="_IDGenText1"
+                                text="Categoris"
                         />
                     </Column>
                 </columns>
                 <items>
                     <ColumnListItem
-                        id="_IDGenColumnListItem1"
-                        type="Navigation"
+                            id="_IDGenColumnListItem1"
+                            type="Navigation"
                     >
                         <cells>
                             <ObjectIdentifier
-                                id="_IDGenObjectIdentifier1"
-                                text="{name}"
+                                    id="_IDGenObjectIdentifier1"
+                                    text="{name}"
                             />
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
         </f:content>
+
+
     </f:DynamicPage>
 </mvc:View>
