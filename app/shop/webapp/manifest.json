@@ -92,16 +92,33 @@
         "viewType": "XML",
         "async": true,
         "viewPath": "com.shop.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
+        "controlAggregation": "beginColumnPages",
+        "controlId": "fcl",
         "clearControlAggregation": false
       },
       "routes": [
         {
           "name": "RouteMaster",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetMaster"
+          ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "categoris/{categorisId}/{layout}",
+          "target": [
+            "TargetMaster",
+            "Detail"
+          ]
+        },
+        {
+          "name": "DetailDetail",
+          "pattern": "categoris/{categoris}/product/{productId}/{layout}",
+          "target": [
+            "TargetMaster",
+            "Detail",
+            "DetailDetail"
           ]
         }
       ],
@@ -112,6 +129,20 @@
           "clearControlAggregation": false,
           "viewId": "Master",
           "viewName": "Master"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "midColumnPages",
+          "viewId": "Detail",
+          "viewName": "Detail"
+        },
+        "DetailDetail":{
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "endColumnPages",
+          "viewId": "DetailDetail",
+          "viewName": "DetailDetail"
         }
       }
     },

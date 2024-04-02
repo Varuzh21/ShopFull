@@ -12,77 +12,58 @@
         toggleHeaderOnTitleClick="false"
     >
         <f:title>
-            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+            <f:DynamicPageTitle>
                 <f:heading>
-                    <Title
-                        id="_IDGenTitle1"
-                        text="Categoris"
-                    />
+                    <Title text="Categoris" />
                 </f:heading>
-
             </f:DynamicPageTitle>
         </f:title>
 
         <f:content>
             <Table
-                    id="movieTable"
-                    mode="SingleSelectMaster"
-                    itemPress=".onNavigate"
-                    inset="false"
-                    items="{
+                id="categorisTable"
+                mode="SingleSelectMaster"
+                itemPress=".onNavigate"
+                inset="false"
+                items="{
 					path: '/Categoris',
                     sorter: {path: 'name'}
 				}"
-                    class="sapFDynamicPageAlignContent"
-                    width="auto"
+                class="sapFDynamicPageAlignContent"
+                width="auto"
             >
                 <headerToolbar>
                     <OverflowToolbar>
-                        <ToolbarSpacer/>
+                        <ToolbarSpacer />
                         <SearchField
-                                search="onSearch"
-                                width="17.5rem"
+                            search="onSearch"
+                            width="17.5rem"
                         />
                         <OverflowToolbarButton
-                                icon="sap-icon://add"
-                                type="Transparent"
-                                press=".onAdd"
+                            icon="sap-icon://add"
+                            type="Transparent"
+                            press=".onAdd"
                         />
                         <OverflowToolbarButton
-                                id="_IDGenOverflowToolbarButton1"
-                                icon="sap-icon://sort"
-                                type="Transparent"
-                                press="onSort"
+                            icon="sap-icon://sort"
+                            type="Transparent"
+                            press="onSort"
                         />
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
-                    <Column
-                            id="_IDGenColumn1"
-                            width="12em"
-                    >
-                        <Text
-                                id="_IDGenText1"
-                                text="Categoris"
-                        />
+                    <Column width="12em">
+                        <Text text="Categoris" />
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem
-                            id="_IDGenColumnListItem1"
-                            type="Navigation"
-                    >
+                    <ColumnListItem type="Navigation">
                         <cells>
-                            <ObjectIdentifier
-                                    id="_IDGenObjectIdentifier1"
-                                    text="{name}"
-                            />
+                            <ObjectIdentifier text="{name}" />
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
         </f:content>
-
-
     </f:DynamicPage>
 </mvc:View>
