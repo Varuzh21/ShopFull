@@ -23,6 +23,7 @@ sap.ui.define([
             onNavigate: function(oEvent){
                const oItem = oEvent.getParameter("listItem");
             
+                // this.getView().getModel("AppView").setProperty("/layout", "TwoColumnsMidExpanded");
                 this.oRouter.navTo("Detail", {
                     categorisId: oItem.getBindingContext().getObject().ID,
                     layout: "TwoColumnsMidExpanded"

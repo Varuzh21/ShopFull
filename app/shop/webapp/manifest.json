@@ -114,7 +114,7 @@
         },
         {
           "name": "DetailDetail",
-          "pattern": "categoris/{categoris}/product/{productId}/{layout}",
+          "pattern": "categoris/{categorisId}/product/{productId}/{layout}",
           "target": [
             "TargetMaster",
             "Detail",

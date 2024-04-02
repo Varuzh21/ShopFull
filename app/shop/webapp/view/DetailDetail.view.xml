@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="com.shop.controller.Detail"
+    controllerName="com.shop.controller.DetailDetail"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -11,60 +11,58 @@
         id="dynamicPageId"
         toggleHeaderOnTitleClick="false"
     >
-        <f:title>
-            <f:DynamicPageTitle>
+        <f:title >
+            <f:DynamicPageTitle id="ety">
                 <f:heading>
                     <Title
-                        text="Product"
+                        id="f"
+                        text="Product Description"
                     />
                 </f:heading>
 
-                <f:navigationActions>                  
+                <f:navigationActions>
+
                     <OverflowToolbarButton
                         type="Transparent"
                         icon="sap-icon://full-screen"
                         press=".handleFullScreen"
                         id="enterFullScreenBtn"
                         tooltip="Enter Full Screen Mode"
-                        visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"
+                        visible="{= ${/actionButtonsInfo/endColumn/fullScreen} !== null }"
                     />
-                    
                     <OverflowToolbarButton
                         id="enterClose"
                         type="Transparent"
                         icon="sap-icon://decline"
                         press=".handleClose"
                         tooltip="Close middle column"
-                        visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"
+                        visible="{= ${/actionButtonsInfo/endColumn/closeColumn} !== null }"
                     />
                 </f:navigationActions>
 
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-        
-            <List
-                id="detailTable"
-                mode="SingleSelectMaster"
-                itemPress=".onNavigate"
-                inset="false"
-                items="{
-                path: '/Product'
-                }"
-                class="sapFDynamicPageAlignContent"
-                width="auto"
-            >
-                <items>
-                    <ObjectListItem 
-                    type="Navigation"
-                    title="{title}"
-                    />
-                    <!-- <Image
-                    src="{images/0/url}"
+            <VBox id="detailDetail">
+                <!-- <Image id="_IDGenImage1"
+                    src="{Images}"
                     width="200px"
-                   /> -->
-                </items>
-            </List>
+                /> -->
+                <Label text="Product Name" />
+                <Text text="{title}" />
+                <Text />
+                <Label text="Price" />
+                <Text  text="${price}"/>
+                <Text/>
+                <Label  text="Description" />
+                <Text  text="{description}"/>
+                <Text />
+                <!-- <Label  text="Release Date"/>
+                <Text  text="{ReleaseDate}"/> -->
+                <Text  />
+                <Label text="Rating" />
+                <RatingIndicator value="{rating}" maxValue="10" visualMode="Half"/>
+            </VBox>             
         </f:content>
     </f:DynamicPage>
 </mvc:View>
