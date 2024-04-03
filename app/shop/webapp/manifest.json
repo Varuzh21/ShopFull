@@ -120,6 +120,13 @@
             "Detail",
             "DetailDetail"
           ]
+        },
+        {
+          "name": "Cart",
+          "pattern": "cart",
+          "target": [
+            "Cart"
+          ]
         }
       ],
       "targets": {
@@ -143,6 +150,13 @@
           "controlAggregation": "endColumnPages",
           "viewId": "DetailDetail",
           "viewName": "DetailDetail"
+        },
+        "Cart":{
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "midColumnPages",
+          "viewId": "Cart",
+          "viewName": "Cart"
         }
       }
     },

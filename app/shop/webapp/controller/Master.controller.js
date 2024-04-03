@@ -67,6 +67,12 @@ sap.ui.define([
 			    this._oPopover.close();
 		    },
 
+            onNav: function(){
+                this.oRouter.navTo("Cart", {
+                    layout: "TwoColumnsMidExpanded"
+                });
+            },
+
             onNavigate: function(oEvent){
                const oItem = oEvent.getParameter("listItem");
             

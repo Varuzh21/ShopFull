@@ -1,0 +1,72 @@
+<mvc:View
+    controllerName="com.shop.controller.Cart"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:ux="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="dynamicPageId"
+        toggleHeaderOnTitleClick="false"
+    >
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Cart" />
+                </f:heading>
+
+                <f:navigationActions>
+                    <OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://full-screen"
+                        press=".handleFullScreen"
+                        id="enterFullScreenBtn"
+                        tooltip="Enter Full Screen Mode"
+                        visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"
+                    />
+
+                    <OverflowToolbarButton
+                        id="enterClose"
+                        type="Transparent"
+                        icon="sap-icon://decline"
+                        press=".handleClose"
+                        tooltip="Close middle column"
+                        visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"
+                    />
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <List
+                id="detailTable"
+                mode="SingleSelectMaster"
+                itemPress=".onNavigate"
+                inset="false"
+                items="{
+                path: '/ShopCart'
+                }"
+                class="sapFDynamicPageAlignContent"
+                width="auto"
+            >
+                <items>
+                    <ObjectListItem
+                        type="Navigation"
+                        title="{title}"
+                    />
+                    <!-- <Image
+                    src="{images[0]/url}"
+                    width="200px"
+                   /> -->
+                </items>
+            </List>
+        </f:content>
+
+        <f:content>
+            <VBox>
+                <Button text="to pay" />
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

@@ -16,7 +16,7 @@
             <f:DynamicPageTitle>
                 <f:actions>
                 
-                    <Button icon="sap-icon://cart" />
+                    <Button icon="sap-icon://cart" press=".onNav" />
 
                     <core:Fragment
                         fragmentName="com.shop.view.AvatarActiveState"
