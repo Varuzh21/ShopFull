@@ -13,12 +13,15 @@
     >
         <f:title >
             <f:DynamicPageTitle id="ety">
+                  
                 <f:heading>
                     <Title
                         id="f"
                         text="Product Description"
                     />
                 </f:heading>
+
+                
 
                 <f:navigationActions>
 
@@ -43,11 +46,13 @@
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
+            
             <VBox id="detailDetail">
                 <!-- <Image id="_IDGenImage1"
                     src="{Images}"
                     width="200px"
                 /> -->
+                
                 <Label text="Product Name" />
                 <Text text="{title}" />
                 <Text />
@@ -62,6 +67,7 @@
                 <Text  />
                 <Label text="Rating" />
                 <RatingIndicator value="{rating}" maxValue="10" visualMode="Half"/>
+                <Button icon="sap-icon://cart" text="add Cart"  press="onPress"/>
             </VBox>             
         </f:content>
     </f:DynamicPage>

@@ -34,6 +34,12 @@ sap.ui.define([
             const oRouter = this.getOwnerComponent().getRouter();
             this.getView().getModel("AppView").setProperty("/layout", "TwoColumnsMidExpanded")
             oRouter.navTo("Detail");
+        },
+
+        onPress: function(oEvent){
+            console.log(this.productId);
         }
+
+
     })
 });

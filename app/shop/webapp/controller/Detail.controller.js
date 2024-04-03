@@ -33,8 +33,7 @@ sap.ui.define([
         },
         
         onNavigate: function (oEvent) {
-            const oItem = oEvent.getParameter("listItem")
-            console.log(oItem.getBindingContext().getObject().ID)             
+            const oItem = oEvent.getParameter("listItem")             
             this.oRouter.navTo("DetailDetail", {
                 categorisId: this.categorisId,
                 productId: oItem.getBindingContext().getObject().ID,
