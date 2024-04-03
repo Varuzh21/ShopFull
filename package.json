@@ -17,5 +17,10 @@
   "scripts": {
     "start": "cds-serve",
     "watch-shop": "cds watch --open shop/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "auth": "basic"
+    }
   }
 }

@@ -19,7 +19,8 @@
                     />
                 </f:heading>
 
-                <f:navigationActions>                  
+                <f:navigationActions>
+                    
                     <OverflowToolbarButton
                         type="Transparent"
                         icon="sap-icon://full-screen"
@@ -60,7 +61,7 @@
                     title="{title}"
                     />
                     <!-- <Image
-                    src="{images/0/url}"
+                    src="{images[0]/url}"
                     width="200px"
                    /> -->
                 </items>
