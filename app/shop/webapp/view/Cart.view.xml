@@ -54,10 +54,10 @@
             </List>
         </f:content>
 
-        <f:content>
+        <!-- <f:content>
             <VBox>
                 <Button text="to pay" />
             </VBox>
-        </f:content>
+        </f:content> -->
     </f:DynamicPage>
 </mvc:View>

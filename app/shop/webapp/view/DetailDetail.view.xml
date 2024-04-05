@@ -48,10 +48,10 @@
         <f:content>
             
             <VBox id="detailDetail">
-                <!-- <Image id="_IDGenImage1"
-                    src="{Images}"
+                <Image id="_IDGenImage1"
+                    src="{Images>/0/url}"
                     width="200px"
-                /> -->
+                />
                 
                 <Label text="Product Name" />
                 <Text text="{title}" />

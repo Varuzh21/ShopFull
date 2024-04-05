@@ -16,11 +16,18 @@
   },
   "scripts": {
     "start": "cds-serve",
+    "deploy:sqlite": "cds deploy --to sqlite:shop.sqlite",
     "watch-shop": "cds watch --open shop/webapp/index.html?sap-ui-xx-viewCache=false"
+
   },
   "cds": {
     "requires": {
-      "auth": "basic"
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "shop.sqlite"
+        }
+      }
     }
   }
 }

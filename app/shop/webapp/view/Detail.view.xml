@@ -14,13 +14,10 @@
         <f:title>
             <f:DynamicPageTitle>
                 <f:heading>
-                    <Title
-                        text="Product"
-                    />
+                    <Title text="Product" />
                 </f:heading>
 
                 <f:navigationActions>
-                    
                     <OverflowToolbarButton
                         type="Transparent"
                         icon="sap-icon://full-screen"
@@ -29,7 +26,7 @@
                         tooltip="Enter Full Screen Mode"
                         visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"
                     />
-                    
+
                     <OverflowToolbarButton
                         id="enterClose"
                         type="Transparent"
@@ -39,33 +36,49 @@
                         visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"
                     />
                 </f:navigationActions>
-
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-        
-            <List
+            <f:GridList
                 id="detailTable"
-                mode="SingleSelectMaster"
+                mode="MultiSelect"
+                items="{ path: '/Product' }"
                 itemPress=".onNavigate"
-                inset="false"
-                items="{
-                path: '/Product'
-                }"
-                class="sapFDynamicPageAlignContent"
-                width="auto"
+                class="sapUiResponsiveContentPadding"
             >
-                <items>
-                    <ObjectListItem 
+                <f:GridListItem
+                    detailPress="onDetailPress"
+                    press=".onNavigate"
                     type="Navigation"
-                    title="{title}"
-                    />
-                    <!-- <Image
-                    src="{images[0]/url}"
-                    width="200px"
-                   /> -->
-                </items>
-            </List>
+                    selected="false"
+                >
+                    <VBox height="100%">
+                        <!-- <Image
+                            src="{ProductPicUrl}"
+                            width="100%"
+                            visible="{= ${onlyImage} ? true : false }"
+                            class="imageDisplayBlock"
+                        /> -->
+                        <HBox
+                            height="100%"
+                            class="sapUiSmallMargin"
+                            alignItems="Center"
+                        >
+                            <Image
+                                src="{images>/0/url}"
+                                width="3rem"
+                                class="sapUiSmallMarginEnd"
+                            />
+                            <VBox>
+                                <Title
+                                    text="{title}"
+                                    wrapping="true"
+                                />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </f:GridListItem>
+            </f:GridList>
         </f:content>
     </f:DynamicPage>
 </mvc:View>
