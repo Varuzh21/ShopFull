@@ -62,8 +62,6 @@
                 <Label  text="Description" />
                 <Text  text="{description}"/>
                 <Text />
-                <!-- <Label  text="Release Date"/>
-                <Text  text="{ReleaseDate}"/> -->
                 <Text  />
                 <Label text="Rating" />
                 <RatingIndicator value="{rating}" maxValue="10" visualMode="Half"/>

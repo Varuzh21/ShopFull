@@ -18,10 +18,6 @@
                 
                     <Button icon="sap-icon://cart" press=".onNav" />
 
-                    <core:Fragment
-                        fragmentName="com.shop.view.AvatarActiveState"
-                        type="XML"
-                    />
                 </f:actions>
 
                 <f:heading>

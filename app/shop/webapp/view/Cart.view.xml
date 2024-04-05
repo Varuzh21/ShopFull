@@ -42,23 +42,14 @@
             <List
                 id="detailTable"
                 mode="SingleSelectMaster"
-                itemPress=".onNavigate"
                 inset="false"
-                items="{
-                path: '/ShopCart'
-                }"
                 class="sapFDynamicPageAlignContent"
                 width="auto"
             >
                 <items>
                     <ObjectListItem
-                        type="Navigation"
                         title="{title}"
                     />
-                    <!-- <Image
-                    src="{images[0]/url}"
-                    width="200px"
-                   /> -->
                 </items>
             </List>
         </f:content>

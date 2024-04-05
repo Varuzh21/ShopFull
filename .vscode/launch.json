@@ -15,6 +15,15 @@
       "skipFiles": [
         "<node_internals>/**"
       ]
-    }
+    },
+    {
+      "command": "yarn start",
+      "name": "debug backend",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
   ]
 }

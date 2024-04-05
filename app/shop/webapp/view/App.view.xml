@@ -1,12 +1,28 @@
-<mvc:View controllerName="com.shop.controller.App"
+<mvc:View
+    controllerName="com.shop.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
-    xmlns:f="sap.f">
-
+    xmlns:f="sap.f"
+>
+    <f:ShellBar
+        title="Shop"
+        homeIcon="images/img.webp"
+        notificationsNumber="2"
+    >
+        <f:profile>
+            <Avatar
+                id="myAvatar"
+                displaySize="S"
+                showBorder="true"
+                class="sapUiTinyMargin"
+                press="onPress"
+            />
+        </f:profile>
+    </f:ShellBar>
     <App id="App">
-    <f:FlexibleColumnLayout
+        <f:FlexibleColumnLayout
             id="fcl"
             layout="{AppView>/layout}"
             backgroundDesign="Translucent"
