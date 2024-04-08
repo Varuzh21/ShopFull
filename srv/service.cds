@@ -8,6 +8,7 @@ service ShopService {
     entity Order as projection on my.Order;
     entity Order_Item as projection on my.Order_Item;
     entity ShopCart as projection on my.ShopCart;
+    entity Images as projection on my.Images;
 
     action addShopCart() returns String;
 }
