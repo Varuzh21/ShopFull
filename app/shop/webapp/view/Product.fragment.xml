@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+>
+    <f:GridList
+        id="detailTable"
+        items="{ path: '/Product' }"
+        itemPress=".onNavigate"
+    >
+        <f:GridListItem
+            press=".onNavigate"
+            type="Navigation"
+        >
+            <VBox class="sapUiSmallMargin">
+                <Image
+                    src="{images/url}"
+                    width="100%"
+                    height="10em"
+                    backgroundSize="cover"
+                    class="sapUiSmallMarginEnd"
+                />
+                <Title
+                    text="{title}"
+                    wrapping="true"
+                    textAlign="Initial"
+                />
+                <RatingIndicator
+                    value="{rating}"
+                    maxValue="10"
+                    visualMode="Half"
+                />
+            </VBox>
+        </f:GridListItem>
+    </f:GridList>
+</core:FragmentDefinition>

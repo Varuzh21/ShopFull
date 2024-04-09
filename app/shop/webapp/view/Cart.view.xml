@@ -39,22 +39,7 @@
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-            <List
-                id="detailTable"
-                mode="SingleSelectMaster"
-                items="{
-                path: '/ShopCart'
-                }"
-                inset="false"
-                class="sapFDynamicPageAlignContent"
-                width="auto"
-            >
-                <items>
-                    <ObjectListItem
-                        title="{title}"
-                    />
-                </items>
-            </List>
+            
         </f:content>
     </f:DynamicPage>
 </mvc:View>

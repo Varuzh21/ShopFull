@@ -50,7 +50,7 @@
             <VBox id="detailDetail">
                 <Image id="_IDGenImage1"
                     src="{images/url}"
-                    width="200px"
+                    width="100%"
                 />
                 
                 <Label text="Product Name" />

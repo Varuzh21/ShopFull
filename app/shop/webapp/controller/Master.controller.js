@@ -2,15 +2,12 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/model/Sorter",
-    "sap/m/Popover",
-    "sap/m/List",
-    "sap/m/StandardListItem"
+    "sap/ui/model/Sorter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator, Sorter, Popover, List, StandardListItem) {
+    function (Controller, Filter, FilterOperator, Sorter) {
         "use strict";
 
         return Controller.extend("com.shop.controller.Master", {

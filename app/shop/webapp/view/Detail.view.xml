@@ -1,6 +1,7 @@
 <mvc:View
     controllerName="com.shop.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:ux="sap.uxap"
@@ -39,39 +40,7 @@
             </f:DynamicPageTitle>
         </f:title>
         <f:content>
-            <f:GridList
-                headerText="Products"
-                id="detailTable"
-                items="{ path: '/Product' }"
-                itemPress=".onNavigate"
-            >
-                <f:GridListItem
-                    press=".onNavigate"
-                    type="Navigation"
-                >
-                    <VBox class="sapUiSmallMargin">
-                        <Title
-                            text="{title}"
-                            wrapping="true"
-                            textAlign="Initial"
-                        />
-
-                        <Image
-                            src="{images/url}"
-                            width="8em"
-                            height="120px"
-                            backgroundSize="cover"
-                            class="sapUiSmallMarginEnd"
-                        />
-                        
-                        <RatingIndicator
-                            value="{rating}"
-                            maxValue="10"
-                            visualMode="Half"
-                        />
-                    </VBox>
-                </f:GridListItem>
-            </f:GridList>
+            <core:Fragment fragmentName="com.shop.view.Product" />
         </f:content>
     </f:DynamicPage>
 </mvc:View>

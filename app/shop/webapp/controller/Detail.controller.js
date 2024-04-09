@@ -12,7 +12,6 @@ sap.ui.define([
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Detail").attachPatternMatched(this._onDetailMatch, this);
             this.getOwnerComponent().getRouter().getRoute("DetailDetail").attachPatternMatched(this._onDetailMatch, this);
-            this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
         },
 
         _onDetailMatch: function(oEvent){
