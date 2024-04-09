@@ -49,7 +49,7 @@
             
             <VBox id="detailDetail">
                 <Image id="_IDGenImage1"
-                    src="{Images>/0/url}"
+                    src="{images/url}"
                     width="200px"
                 />
                 

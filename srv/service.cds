@@ -10,5 +10,5 @@ service ShopService {
     entity ShopCart as projection on my.ShopCart;
     entity Images as projection on my.Images;
 
-    action addShopCart() returns String;
+    action addShopCart(product_ID : UUID) returns String;
 }

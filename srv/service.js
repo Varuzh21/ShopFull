@@ -1,6 +1,12 @@
+const cds = require('@sap/cds')
 module.exports = (srv) =>{
-    srv.on("addShopCart", (req) =>{
+    const {ShopCart} = cds.entities("shopfull")
+    srv.on("addShopCart", async (req) =>{
         debugger
-        req 
-    })
+        const data = req.data;
+        const shop = await INSERT({
+            product_ID: data.product_ID,
+        }).into(ShopCart)
+        return "product is added to ShopCart";
+    });
 }

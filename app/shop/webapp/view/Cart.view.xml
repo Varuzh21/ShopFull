@@ -42,6 +42,9 @@
             <List
                 id="detailTable"
                 mode="SingleSelectMaster"
+                items="{
+                path: '/ShopCart'
+                }"
                 inset="false"
                 class="sapFDynamicPageAlignContent"
                 width="auto"
@@ -53,11 +56,5 @@
                 </items>
             </List>
         </f:content>
-
-        <!-- <f:content>
-            <VBox>
-                <Button text="to pay" />
-            </VBox>
-        </f:content> -->
     </f:DynamicPage>
 </mvc:View>

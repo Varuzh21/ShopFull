@@ -40,42 +40,35 @@
         </f:title>
         <f:content>
             <f:GridList
+                headerText="Products"
                 id="detailTable"
-                mode="MultiSelect"
                 items="{ path: '/Product' }"
                 itemPress=".onNavigate"
-                class="sapUiResponsiveContentPadding"
             >
                 <f:GridListItem
-                    detailPress="onDetailPress"
                     press=".onNavigate"
                     type="Navigation"
-                    selected="false"
                 >
-                    <VBox height="100%">
-                        <!-- <Image
-                            src="{ProductPicUrl}"
-                            width="100%"
-                            visible="{= ${onlyImage} ? true : false }"
-                            class="imageDisplayBlock"
-                        /> -->
-                        <HBox
-                            height="100%"
-                            class="sapUiSmallMargin"
-                            alignItems="Center"
-                        >
-                            <Image
-                                src="{images>/0/url}"
-                                width="3rem"
-                                class="sapUiSmallMarginEnd"
-                            />
-                            <VBox>
-                                <Title
-                                    text="{title}"
-                                    wrapping="true"
-                                />
-                            </VBox>
-                        </HBox>
+                    <VBox class="sapUiSmallMargin">
+                        <Title
+                            text="{title}"
+                            wrapping="true"
+                            textAlign="Initial"
+                        />
+
+                        <Image
+                            src="{images/url}"
+                            width="8em"
+                            height="120px"
+                            backgroundSize="cover"
+                            class="sapUiSmallMarginEnd"
+                        />
+                        
+                        <RatingIndicator
+                            value="{rating}"
+                            maxValue="10"
+                            visualMode="Half"
+                        />
                     </VBox>
                 </f:GridListItem>
             </f:GridList>

@@ -8,7 +8,7 @@
 >
     <f:ShellBar
         title="Shop"
-        homeIcon="images/img.webp"
+        homeIcon="images/img_2.png"
         notificationsNumber="2"
     >
         <f:profile>

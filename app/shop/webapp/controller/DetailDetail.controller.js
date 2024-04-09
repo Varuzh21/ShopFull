@@ -42,44 +42,17 @@ sap.ui.define([
           const oModel = this.getView().getModel();
           const sProductId = this.productId;
  
-          const oBindingContext = await oModel.bindContext('/addShopCart(...)', sProductId)
+          const oBindingContext = await oModel.bindContext('/addShopCart(...)')
 
           oBindingContext.setParameter("product_ID", sProductId);
  
           const result = await oBindingContext.execute();
-   
+          
           console.log(result);
         } catch (error) {
           console.error(error);
       }
     }
-
-    // onPress: async function() {
-    //   try {
-    //     const oModel = this.getView().getModel();
-    //     const sProductId = this.productId;
-
-    //     // Ensure the model is loaded
-    //     if (!oModel) {
-    //       throw new Error("Model not found.");
-    //     }
-
-    //     // Ensure productId is valid
-    //     if (!sProductId) {
-    //       throw new Error("Invalid product ID.");
-    //     }
-
-    //     // Bind context
-    //     const oBindingContext = await oModel.bindContext(`/addShopCart(․․․)`, { bUseBatch: true });
-
-    //     // Execute action
-    //     const result = await oBindingContext.execute();
-
-    //     console.log(result); // Check the result
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
-
+    
     });
 });
