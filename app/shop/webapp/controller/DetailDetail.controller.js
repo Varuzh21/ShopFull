@@ -41,18 +41,14 @@ sap.ui.define([
         try {
           const oModel = this.getView().getModel();
           const sProductId = this.productId;
- 
           const oBindingContext = await oModel.bindContext('/addShopCart(...)')
-
           oBindingContext.setParameter("product_ID", sProductId);
- 
           const result = await oBindingContext.execute();
-          
           console.log(result);
         } catch (error) {
           console.error(error);
+        }
       }
-    }
     
     });
 });

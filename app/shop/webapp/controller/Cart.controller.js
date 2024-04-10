@@ -9,6 +9,7 @@ sap.ui.define([
         onInit: function(){
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
+            this.getOwnerComponent().getRouter().getRoute("Detail").attachPatternMatched(this._onDetailMatch, this);
         },
            
         _onDetailMatch: function(oEvent){

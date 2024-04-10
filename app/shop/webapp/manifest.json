@@ -123,7 +123,7 @@
         },
         {
           "name": "Cart",
-          "pattern": "cart",
+          "pattern": "cart/{layout}",
           "target": [
             "TargetMaster",
             "Cart"
