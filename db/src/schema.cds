@@ -39,7 +39,12 @@ entity Order : cuid {
 
 entity Order_Item : cuid {
     quantity: Integer;
-    price: Integer;
+    price: Double;
+    title: String;
+    rating: Double;
+    description: String;
+    totalPrice: Double;
+    images: Association to Images;
     order: Association to Order;
 }
 

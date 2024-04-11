@@ -5,12 +5,22 @@
     xmlns:f="sap.f"
 >
     <Table
+        id="cartTable"
         class="sapFDynamicPageAlignContent"
         width="auto"
         items="{
 			path: '/ShopCartView'
 		}"
     >
+        <headerToolbar>
+            <Toolbar>
+                <Button
+                    text="Pay"
+                    type="Emphasized"
+                    press="toPay"
+                />
+            </Toolbar>
+        </headerToolbar>
         <columns>
             <Column width="12em">
                 <Text text="Image" />
@@ -49,11 +59,11 @@
                     maxValue="5"
                     visualMode="Half"
                 />
-                
-                <Title text="${price}" />
+
+                <Title text="{price}" />
 
                 <Text text="{totalPrice}" />
-                
+
                 <StepInput
                     id="CurrentValue"
                     value="{quantity}"

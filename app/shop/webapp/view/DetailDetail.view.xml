@@ -51,6 +51,7 @@
                 <Image id="_IDGenImage1"
                     src="{images/url}"
                     width="100%"
+                    height="14em"
                 />
                 
                 <Label text="Product Name" />

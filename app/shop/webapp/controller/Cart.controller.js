@@ -29,6 +29,32 @@ sap.ui.define([
             oContext.getModel().refresh();
         },
 
+        toPay: async function () {
+            const oTable = this.getView().byId("cartTable");
+            const aItems = oTable.getItems();
+            const aItemsData = [];
+            let fTotalAmount = 0;
+
+            aItems.forEach(function (oItem) {
+                const oContext = oItem.getBindingContext();
+                const oItemData = oContext.getObject();
+                const fTotalPrice = parseFloat(oContext.getProperty("totalPrice"));
+                fTotalAmount += fTotalPrice;
+                aItemsData.push(oItemData);
+            });
+            console.log(aItemsData, fTotalAmount);
+            
+            try {
+                const oModel = this.getView().getModel();
+                const oBindingContext = await oModel.bindContext('/addOrderItem(...)')
+                oBindingContext.setParameter("allProductCart", aItemsData);
+                const result = await oBindingContext.execute();
+                console.log(result);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
         handleFullScreen: function () {
             const sNextLayout = this.getView().getModel("AppView").getProperty("/actionButtonsInfo/midColumn/fullScreen");
             this.getView().getModel("AppView").setProperty("/actionButtonsInfo/midColumn/fullScreen", !sNextLayout);

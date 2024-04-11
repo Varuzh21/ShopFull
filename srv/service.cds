@@ -22,4 +22,5 @@ service ShopService {
     }
 
     action addShopCart(product_ID : UUID) returns String;
+    action addOrderItem(price: Double, title: String, rating: Double, quantity: Integer, totalPrice: Integer) returns String;
 }
