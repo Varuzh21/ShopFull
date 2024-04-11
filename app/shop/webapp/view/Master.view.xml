@@ -17,6 +17,12 @@
                 <f:actions>
                 
                     <Button icon="sap-icon://cart" press=".onNav" />
+                    <!-- <Button
+					id="BadgedButton"
+					class="sapUiTinyMarginBeginEnd"
+					icon="{= ${/buttonWithIcon} ? ${/buttonIcon} : '' }"
+					type="{/buttonType}"
+					text="{= ${/buttonWithText} ? ${/buttonText} : '' }"/> -->
 
                 </f:actions>
 

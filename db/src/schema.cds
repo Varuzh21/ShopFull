@@ -8,8 +8,7 @@ entity Product : cuid {
    price: Double;
    rating: Integer;
    images: Association to Images;
-   categoris: Association to Categoris;
-//    shopcart: Association to ShopCart;   
+   categoris: Association to Categoris;  
 }
 
 entity Categoris : cuid {
@@ -47,6 +46,8 @@ entity Order_Item : cuid {
 entity ShopCart : cuid {
     product: Association to Product;
     user: Association to User;
+    totalPrice: Double;
+    quantity: Integer default 1;
 }
 
 entity Images : cuid {

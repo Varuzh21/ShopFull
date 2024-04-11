@@ -128,6 +128,15 @@
             "TargetMaster",
             "Cart"
           ]
+        },
+        {
+          "name": "Product",
+          "pattern": "product/{layout}",
+          "target": [
+            "TargetMaster",
+            "Detail",
+            "Product"
+          ]
         }
       ],
       "targets": {
@@ -158,6 +167,13 @@
           "controlAggregation": "midColumnPages",
           "viewId": "Cart",
           "viewName": "Cart"
+        },
+        "Product":{
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "midColumnPages",
+          "viewId": "Product",
+          "viewName": "Product"
         }
       }
     },

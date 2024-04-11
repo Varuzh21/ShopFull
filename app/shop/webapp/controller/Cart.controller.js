@@ -9,12 +9,24 @@ sap.ui.define([
         onInit: function(){
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
-            this.getOwnerComponent().getRouter().getRoute("Detail").attachPatternMatched(this._onDetailMatch, this);
         },
            
         _onDetailMatch: function(oEvent){
             this.layout = oEvent.getParameter("arguments").layout || fLibrary.LayoutType.TwoColumnsMidExpanded;
             this.getView().getModel("AppView").setProperty("/layout", this.layout);
+        },
+
+         currentChangeHandler: function(oEvent) {
+            const oSelectedItem = oEvent.getSource().getParent();
+            const oContext = oSelectedItem.getBindingContext();
+
+            const iQuantity = parseInt(oEvent.getParameter("value"));
+            const fPrice = parseFloat(oContext.getProperty("price"));
+
+            const fTotalPrice = iQuantity * fPrice;
+            oContext.getObject().totalPrice = fTotalPrice;
+            oContext.setProperty("totalPrice", fTotalPrice);
+            oContext.getModel().refresh();
         },
 
         handleFullScreen: function () {

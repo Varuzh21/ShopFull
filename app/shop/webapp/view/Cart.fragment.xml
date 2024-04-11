@@ -4,30 +4,64 @@
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
 >
-    <f:GridList
-        id="detailTable"
-        items="{ path: '/ShopCart' }"
+    <Table
+        class="sapFDynamicPageAlignContent"
+        width="auto"
+        items="{
+			path: '/ShopCartView'
+		}"
     >
-        <f:GridListItem>
-            <VBox class="sapUiSmallMargin">
-                <!-- <Image
+        <columns>
+            <Column width="12em">
+                <Text text="Image" />
+            </Column>
+            <Column width="12em">
+                <Text text="Title" />
+            </Column>
+            <Column width="12em">
+                <Text text="Rating" />
+            </Column>
+            <Column width="12em">
+                <Text text="Price" />
+            </Column>
+            <Column width="12em">
+                <Text text="Total Price" />
+            </Column>
+            <Column width="12em">
+                <Text text="Quantity" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <Image
                     src="{images/url}"
                     width="100%"
                     height="10em"
                     backgroundSize="cover"
-                    class="sapUiSmallMarginEnd"
-                /> -->
+                />
                 <Title
-                    text="{product_ID}"
+                    text="{title}"
                     wrapping="true"
                     textAlign="Initial"
                 />
-                <!-- <RatingIndicator
+                <RatingIndicator
                     value="{rating}"
-                    maxValue="10"
+                    maxValue="5"
                     visualMode="Half"
-                /> -->
-            </VBox>
-        </f:GridListItem>
-    </f:GridList>
+                />
+                
+                <Title text="${price}" />
+
+                <Text text="{totalPrice}" />
+                
+                <StepInput
+                    id="CurrentValue"
+                    value="{quantity}"
+                    min="1"
+                    width="130px"
+                    change="currentChangeHandler"
+                />
+            </ColumnListItem>
+        </items>
+    </Table>
 </core:FragmentDefinition>
