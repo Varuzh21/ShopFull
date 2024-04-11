@@ -43,7 +43,7 @@ entity Order_Item : cuid {
     title: String;
     rating: Double;
     description: String;
-    totalPrice: Double;
+    productTotalPrice: Double;
     images: Association to Images;
     order: Association to Order;
 }
