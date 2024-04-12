@@ -10,6 +10,7 @@ module.exports = (srv) => {
   });
 
   srv.on("addOrderItem", async (req) => {
+    debugger;
     const { allProductCart } = req.data;
     const promises =  allProductCart.map((e) => {
       return INSERT({
@@ -17,10 +18,10 @@ module.exports = (srv) => {
         price: e.price,
         quantity: e.quantity,
         rating: e.rating,
-        productTotalPrice: e.totalPrice 
+        totalPrice: e.totalPrice,
       }).into(Order_Item);
     });
-    await Promise.all(promises);
+    await Promise.all(promises)
     return "product is Order_Item";
   });
 };

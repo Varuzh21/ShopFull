@@ -23,9 +23,6 @@
         </headerToolbar>
         <columns>
             <Column width="12em">
-                <Text text="Image" />
-            </Column>
-            <Column width="12em">
                 <Text text="Title" />
             </Column>
             <Column width="12em">
@@ -42,13 +39,7 @@
             </Column>
         </columns>
         <items>
-            <ColumnListItem>
-                <Image
-                    src="{images/url}"
-                    width="100%"
-                    height="10em"
-                    backgroundSize="cover"
-                />
+            <ColumnListItem>                
                 <Title
                     text="{title}"
                     wrapping="true"
@@ -72,6 +63,6 @@
                     change="currentChangeHandler"
                 />
             </ColumnListItem>
-        </items>
+        </items>    
     </Table>
 </core:FragmentDefinition>
