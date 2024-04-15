@@ -34,14 +34,12 @@ entity Order : cuid {
     orderDate: DateTime;
     totalPrice: Integer;
     payment: Association to Payment;
-    order_Item: Association to many Order_Item on order_Item.order = $self;
+    order_Item: Association to many Order_Items on order_Item.order = $self;
 }
 
-entity Order_Item : cuid {
+entity Order_Items : cuid {
     quantity: Integer;
-    price: Double;
-    title: String;
-    rating: Double;
+    product: Association to Product;
     totalPrice: Double;
     order: Association to Order;
 }
@@ -55,5 +53,5 @@ entity ShopCart : cuid {
 
 entity Images : cuid {
     url: String;
-    product: Association to many Product on product.images = $self;
+    product: Association to many Product;
 }
