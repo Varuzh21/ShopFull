@@ -13,8 +13,7 @@ entity Product : cuid {
 
 entity Categoris : cuid {
     name    : String;
-    product : Association to many Product
-                  on product.categoris = $self;
+    product : Association to many Product on product.categoris = $self;
 }
 
 entity User : cuid {
@@ -28,8 +27,7 @@ entity User : cuid {
 entity Payment : cuid {
     paymentDate : DateTime;
     amount      : Integer;
-    order       : Association to many Order
-                      on order.payment = $self;
+    order       : Association to many Order on order.payment = $self;
     user        : Association to User;
 }
 
@@ -37,8 +35,7 @@ entity Order : cuid {
     orderDate  : DateTime;
     totalPrice : Integer;
     payment    : Association to Payment;
-    order_Item : Association to many Order_Items
-                     on order_Item.order = $self;
+    order_Item : Association to many Order_Items on order_Item.order = $self;
 }
 
 entity Order_Items : cuid {
@@ -49,6 +46,13 @@ entity Order_Items : cuid {
 }
 
 entity ShopCart : cuid {
+    product    : Association to Product;
+    user       : Association to User;
+    totalPrice : Double;
+    quantity   : Integer default 1;
+}
+
+entity ShopCartItems : cuid {
     product    : Association to Product;
     user       : Association to User;
     totalPrice : Double;

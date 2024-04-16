@@ -15,9 +15,9 @@
         <headerToolbar>
             <Toolbar>
                 <Button
-                    text="Pay"
+                    text="Chack Out"
                     type="Emphasized"
-                    press="toPay"
+                    press="chackOut"
                 />
             </Toolbar>
         </headerToolbar>

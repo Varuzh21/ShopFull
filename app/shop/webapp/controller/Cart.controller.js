@@ -16,7 +16,7 @@ sap.ui.define([
             this.getView().getModel("AppView").setProperty("/layout", this.layout);
         },
 
-         currentChangeHandler: function(oEvent) {
+        currentChangeHandler: function(oEvent) {
             const oSelectedItem = oEvent.getSource().getParent();
             const oContext = oSelectedItem.getBindingContext();
 
@@ -28,8 +28,8 @@ sap.ui.define([
             oContext.setProperty("totalPrice", fTotalPrice);
             oContext.getModel().refresh();
         },
-
-        toPay: async function () {
+        
+        chackOut: async function () {
             const oTable = this.getView().byId("cartTable");
             const aItems = oTable.getItems();
             const aItemsData = [];
@@ -40,7 +40,10 @@ sap.ui.define([
                 const oItemData = oContext.getObject();
                 const fTotalPrice = parseFloat(oContext.getProperty("totalPrice"));
                 fTotalAmount += fTotalPrice;
-                aItemsData.push(oItemData);
+                aItemsData.push({
+                    quantity: oItemData.quantity,
+                    totalPrice: oItemData.totalPrice
+                })
             });
             console.log(aItemsData, fTotalAmount);
             
