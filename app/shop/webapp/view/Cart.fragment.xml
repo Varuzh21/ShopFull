@@ -78,7 +78,7 @@
                         <Button
                             type="Reject"
                             icon="sap-icon://delete"
-                            press="delete"
+                            press="onDelete"
                         />
                     </ColumnListItem>
                 </items>
@@ -128,7 +128,7 @@
             </HBox>
             <HBox justifyContent="End">
                 <Button
-                width="100%"
+                    width="100%"
                     icon="sap-icon://cart-approval"
                     text="Chack Out"
                     type="Accept"

@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/f/library",
-    "sap/ui/model/json/JSONModel"
-], function(Controller, fLibrary, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox"
+], function(Controller, fLibrary, JSONModel, MessageBox) {
     'use strict';
     
     return Controller.extend("com.shop.controller.Cart",{
@@ -55,13 +56,9 @@ sap.ui.define([
 
             const oTestModel = this.getView().getModel("TestModel");
                 oTestModel.setProperty("/cartItems", aItemsData);
-                // oTestModel.setProperty("/cartItems", fTotalAmount)
-                // oTestModel.setProperty("/totalAmount", fTotalAmount);
 
             try {
                 const oModel = this.getView().getModel();
-                oModel.quantity = aItemsData.quantity;
-                oModel.totalAmount = fTotalAmount;
                 const oBindingContext = oModel.bindContext('/addOrderItem(...)')
                 oBindingContext.setParameter("allProductCart", aItemsData);
                 const result = await oBindingContext.execute();
@@ -71,15 +68,20 @@ sap.ui.define([
             }
         },
 
-        delete: function(oEvent){
-            console.log(oEvent);
-            const oTable = this.getView().byId("cartTable");
-            const aItems = oTable.getItems();
+        onDelete: function(oEvent){
+            const oButton = oEvent.getSource();
+            const oItem = oButton.getParent();
 
-            // if (aItems.length > 0) {
-            //     const iMiddleIndex = Math.floor(aItems.length / 2);
-            //     aItems[iMiddleIndex].destroy();
-            // }
+            const oContext = oItem.getBindingContext();
+            const sItemId = oContext.getProperty("ID");
+    
+            if(sItemId){
+                oItem.getBindingContext().delete("$auto").then(function () {
+                    MessageBox.success("SuccessFully Deleted");
+                }.bind(this), function (oError) {
+                    console.log("Deletion Error: ",oError);
+                });
+            }
         },
 
         handleFullScreen: function () {

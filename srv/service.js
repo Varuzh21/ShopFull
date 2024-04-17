@@ -12,14 +12,14 @@ module.exports = (srv) => {
   srv.on("addOrderItem", async (req) => {
     debugger;
     const { allProductCart } = req.data;
-    const promises =  allProductCart.map((e) => {
+    const promises = allProductCart.map((e) => {
       return INSERT({
         product: e.product,
         quantity: e.quantity,
         totalPrice: e.totalPrice,
       }).into(Order_Items);
     });
-    await Promise.all(promises)
+    await Promise.all(promises);
     return "product is Order_Item";
   });
 };
