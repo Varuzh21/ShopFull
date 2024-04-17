@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/f/library"
-], function(Controller, fLibrary) {
+    "sap/f/library",
+    "sap/ui/model/json/JSONModel"
+], function(Controller, fLibrary, JSONModel) {
     'use strict';
     
     return Controller.extend("com.shop.controller.Cart",{
@@ -46,7 +47,7 @@ sap.ui.define([
                 })
             });
             console.log(aItemsData, fTotalAmount);
-            
+
             try {
                 const oModel = this.getView().getModel();
                 const oBindingContext = await oModel.bindContext('/addOrderItem(...)')
@@ -55,6 +56,16 @@ sap.ui.define([
                 console.log(result);
             } catch (error) {
                 console.error(error);
+            }
+        },
+
+        delete: function(){
+            const oTable = this.getView().byId("cartTable");
+            const aItems = oTable.getItems();
+
+            if (aItems.length > 0) {
+                const iMiddleIndex = Math.floor(aItems.length / 2);
+                aItems[iMiddleIndex].destroy();
             }
         },
 

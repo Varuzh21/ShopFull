@@ -1,77 +1,138 @@
 <core:FragmentDefinition
     xmlns="sap.m"
+    xmlns:card="sap.f.cards"
     xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
 >
-    <Table
-        id="cartTable"
-        class="sapFDynamicPageAlignContent"
-        width="auto"
-        items="{
-			path: '/ShopCartView'
-		}"
+    <Page
+        showHeader="false"
+        enableScrolling="true"
+        class="sapUiContentPadding"
     >
-        <headerToolbar>
-            <Toolbar>
+        <content>
+            <Table
+                id="cartTable"
+                class="sapFDynamicPageAlignContent"
+                width="auto"
+                items="{
+			        path: '/ShopCartView'
+		        }"
+            >
+                <columns>
+                    <Column width="12em">
+                        <Text text="Image" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Title" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Rating" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Price" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Total Price" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Quantity" />
+                    </Column>
+                    <Column width="12em">
+                        <Text text="Delete" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <Image
+                            src="{images/url}"
+                            width="100%"
+                            height="10em"
+                            backgroundSize="cover"
+                        />
+                        <Title
+                            text="{title}"
+                            wrapping="true"
+                            textAlign="Initial"
+                        />
+                        <RatingIndicator
+                            value="{rating}"
+                            maxValue="5"
+                            visualMode="Half"
+                        />
+
+                        <Title text="{price}" />
+
+                        <Text text="{totalPrice}" />
+
+                        <StepInput
+                            id="CurrentValue"
+                            value="{quantity}"
+                            min="1"
+                            width="100px"
+                            change="currentChangeHandler"
+                        />
+
+                        <Button
+                            type="Reject"
+                            icon="sap-icon://delete"
+                            press="delete"
+                        />
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <l:HorizontalLayout class="sapUiContentPadding">
+                <f:Card
+                    class="sapUiMediumMargin"
+                    width="300px"
+                    height="auto"
+                >
+                    <f:header>
+                        <card:Header title="Different Values" />
+                    </f:header>
+                    <f:content>
+                        <List
+                            class="sapUiSmallMarginBottom"
+                            showSeparators="None"
+                            items="{
+			                path: 'CheckoutData'
+		                }"
+                        >
+                            <CustomListItem>
+                                <HBox
+                                    alignItems="Center"
+                                    justifyContent="SpaceBetween"
+                                >
+                                    <VBox
+                                        class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+                                    >
+                                        <Title
+                                            level="H3"
+                                            text="{quantity}"
+                                        />
+                                        <Text text="Total Price: {totalPrice}" />
+                                    </VBox>
+                                    <ObjectStatus
+                                        class="sapUiTinyMargin sapUiSmallMarginEnd"
+                                        text="{}"
+                                        state="{>}"
+                                    />
+                                </HBox>
+                            </CustomListItem>
+                        </List>
+                    </f:content>
+                </f:Card>
+            </l:HorizontalLayout>
+            <l:HorizontalLayout  class="sapUiContentPadding" >
                 <Button
+                    icon="sap-icon://cart-approval"
                     text="Chack Out"
-                    type="Emphasized"
+                    type="Accept"
                     press="chackOut"
                 />
-            </Toolbar>
-        </headerToolbar>
-        <columns>
-            <Column width="12em">
-                <Text text="Image" />
-            </Column>
-            <Column width="12em">
-                <Text text="Title" />
-            </Column>
-            <Column width="12em">
-                <Text text="Rating" />
-            </Column>
-            <Column width="12em">
-                <Text text="Price" />
-            </Column>
-            <Column width="12em">
-                <Text text="Total Price" />
-            </Column>
-            <Column width="12em">
-                <Text text="Quantity" />
-            </Column>
-        </columns>
-        <items>
-            <ColumnListItem>
-                <Image
-                    src="{images/url}"
-                    width="100%"
-                    height="10em"
-                    backgroundSize="cover"
-                />
-                <Title
-                    text="{title}"
-                    wrapping="true"
-                    textAlign="Initial"
-                />
-                <RatingIndicator
-                    value="{rating}"
-                    maxValue="5"
-                    visualMode="Half"
-                />
-
-                <Title text="{price}" />
-
-                <Text text="{totalPrice}" />
-
-                <StepInput
-                    id="CurrentValue"
-                    value="{quantity}"
-                    min="1"
-                    width="100px"
-                    change="currentChangeHandler"
-                />
-            </ColumnListItem>
-        </items>
-    </Table>
+            </l:HorizontalLayout>
+        </content>
+    </Page>
 </core:FragmentDefinition>
