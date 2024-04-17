@@ -40,7 +40,7 @@ entity Order : cuid {
 
 entity Order_Items : cuid {
     quantity   : Integer;
-    product    : Association to Product;
+    product    : String;
     totalPrice : Double;
     order      : Association to Order;
 }

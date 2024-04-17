@@ -10,6 +10,9 @@ sap.ui.define([
         onInit: function(){
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
+            // new Json
+            const model = new JSONModel();
+            this.getView().setModel(model, "TestModel");
         },
            
         _onDetailMatch: function(oEvent){
@@ -42,15 +45,24 @@ sap.ui.define([
                 const fTotalPrice = parseFloat(oContext.getProperty("totalPrice"));
                 fTotalAmount += fTotalPrice;
                 aItemsData.push({
+                    product: oItemData.ID,
                     quantity: oItemData.quantity,
                     totalPrice: oItemData.totalPrice
                 })
             });
             console.log(aItemsData, fTotalAmount);
 
+
+            const oTestModel = this.getView().getModel("TestModel");
+                oTestModel.setProperty("/cartItems", aItemsData);
+                // oTestModel.setProperty("/cartItems", fTotalAmount)
+                // oTestModel.setProperty("/totalAmount", fTotalAmount);
+
             try {
                 const oModel = this.getView().getModel();
-                const oBindingContext = await oModel.bindContext('/addOrderItem(...)')
+                oModel.quantity = aItemsData.quantity;
+                oModel.totalAmount = fTotalAmount;
+                const oBindingContext = oModel.bindContext('/addOrderItem(...)')
                 oBindingContext.setParameter("allProductCart", aItemsData);
                 const result = await oBindingContext.execute();
                 console.log(result);
@@ -59,14 +71,15 @@ sap.ui.define([
             }
         },
 
-        delete: function(){
+        delete: function(oEvent){
+            console.log(oEvent);
             const oTable = this.getView().byId("cartTable");
             const aItems = oTable.getItems();
 
-            if (aItems.length > 0) {
-                const iMiddleIndex = Math.floor(aItems.length / 2);
-                aItems[iMiddleIndex].destroy();
-            }
+            // if (aItems.length > 0) {
+            //     const iMiddleIndex = Math.floor(aItems.length / 2);
+            //     aItems[iMiddleIndex].destroy();
+            // }
         },
 
         handleFullScreen: function () {

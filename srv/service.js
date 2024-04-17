@@ -14,6 +14,7 @@ module.exports = (srv) => {
     const { allProductCart } = req.data;
     const promises =  allProductCart.map((e) => {
       return INSERT({
+        product: e.product,
         quantity: e.quantity,
         totalPrice: e.totalPrice,
       }).into(Order_Items);

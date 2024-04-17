@@ -5,6 +5,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
+    height="100%"
 >
     <Page
         showHeader="false"
@@ -83,10 +84,13 @@
                 </items>
             </Table>
 
-            <l:HorizontalLayout class="sapUiContentPadding">
+            <HBox
+                justifyContent="End"
+                class="sapUiContentPadding"
+            >
                 <f:Card
                     class="sapUiMediumMargin"
-                    width="300px"
+                    width="90%"
                     height="auto"
                 >
                     <f:header>
@@ -97,8 +101,8 @@
                             class="sapUiSmallMarginBottom"
                             showSeparators="None"
                             items="{
-			                path: 'CheckoutData'
-		                }"
+			                path: 'TestModel>/cartItems'
+		                    }"
                         >
                             <CustomListItem>
                                 <HBox
@@ -110,29 +114,27 @@
                                     >
                                         <Title
                                             level="H3"
-                                            text="{quantity}"
+                                            text="TotalPrice: {TestModel>totalPrice}"
                                         />
-                                        <Text text="Total Price: {totalPrice}" />
+                                        <Text
+                                            text="Quantity: {TestModel>quantity}"
+                                        />
                                     </VBox>
-                                    <ObjectStatus
-                                        class="sapUiTinyMargin sapUiSmallMarginEnd"
-                                        text="{}"
-                                        state="{>}"
-                                    />
                                 </HBox>
                             </CustomListItem>
                         </List>
                     </f:content>
                 </f:Card>
-            </l:HorizontalLayout>
-            <l:HorizontalLayout  class="sapUiContentPadding" >
+            </HBox>
+            <HBox justifyContent="End">
                 <Button
+                width="100%"
                     icon="sap-icon://cart-approval"
                     text="Chack Out"
                     type="Accept"
                     press="chackOut"
                 />
-            </l:HorizontalLayout>
+            </HBox>
         </content>
     </Page>
 </core:FragmentDefinition>

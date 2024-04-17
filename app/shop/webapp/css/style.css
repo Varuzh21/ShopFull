@@ -1,15 +1,1 @@
 /* Enter your custom styles here */
-#__layout1,
-#__layout0{
-    display: flex;
-    justify-content: end;
-}
-
-#__layout1{
-    height: 50px;
-}
-
-.sapUiHLayout.sapUiContentPadding{
-    height: 160px;
-    align-items: center;
-}
