@@ -119,6 +119,9 @@
                                         <Text
                                             text="Quantity: {TestModel>quantity}"
                                         />
+                                        <Text
+                                            text="Total: {TestModel>fTotalAmount}"
+                                        />
                                     </VBox>
                                 </HBox>
                             </CustomListItem>

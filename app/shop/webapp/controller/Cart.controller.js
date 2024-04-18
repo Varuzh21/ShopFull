@@ -11,7 +11,6 @@ sap.ui.define([
         onInit: function(){
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
-            // new Json
             const model = new JSONModel();
             this.getView().setModel(model, "TestModel");
         },
@@ -55,7 +54,7 @@ sap.ui.define([
 
 
             const oTestModel = this.getView().getModel("TestModel");
-                oTestModel.setProperty("/cartItems", aItemsData);
+            oTestModel.setProperty("/cartItems", aItemsData)
 
             try {
                 const oModel = this.getView().getModel();
