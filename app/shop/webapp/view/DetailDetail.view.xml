@@ -65,7 +65,7 @@
                 <Text />
                 <Text  />
                 <Label text="Rating" />
-                <RatingIndicator value="{rating}" maxValue="10" visualMode="Half"/>
+                <RatingIndicator value="{rating}" maxValue="5" visualMode="Half"/>
                 <Button icon="sap-icon://cart" text="add Cart"  press="onPress"/>
             </VBox>             
         </f:content>

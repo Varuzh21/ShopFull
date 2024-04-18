@@ -28,7 +28,7 @@
                 />
                 <RatingIndicator
                     value="{rating}"
-                    maxValue="10"
+                    maxValue="5"
                     visualMode="Half"
                 />
             </VBox>
