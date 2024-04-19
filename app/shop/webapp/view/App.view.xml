@@ -6,15 +6,11 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
 >
-    <f:ShellBar
-        title="Shop"
-        homeIcon="images/img_2.png"
-        notificationsNumber="2"
-    >
+    <f:ShellBar>
         <f:profile>
             <Avatar
                 id="myAvatar"
-                displaySize="S"
+                displaySize="XS"
                 showBorder="true"
                 class="sapUiTinyMargin"
                 press="onPress"

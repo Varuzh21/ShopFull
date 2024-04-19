@@ -30,14 +30,16 @@ sap.ui.define([
             const fTotalPrice = iQuantity * fPrice;
             oContext.getObject().totalPrice = fTotalPrice;
             oContext.setProperty("totalPrice", fTotalPrice);
-            oContext.getModel().refresh();
+            this._updateTotalAmount();
+            oContext.getModel().refresh();  
         },
         
         chackOut: async function () {
             const oTable = this.getView().byId("cartTable");
             const aItems = oTable.getItems();
             const aItemsData = [];
-            const data = [];
+            // const data = [];
+            // const rows = [];
             let fTotalAmount = 0;
 
             aItems.forEach(function (oItem) {
@@ -51,16 +53,15 @@ sap.ui.define([
                     totalPrice: oItemData.totalPrice
                 })
                 
-                data.push({
-                    fTotalAmount: fTotalAmount,
-                    totalPrice: oItemData.totalPrice
-                })
+                // data.push({
+                //     fTotalAmount: fTotalAmount,
+                //     totalPrice: oItemData.totalPrice
+                // })
             });
-            console.log(aItemsData, fTotalAmount);
-
-
-            const oTestModel = this.getView().getModel("TestModel");
-            oTestModel.setProperty("/cartItems", data)
+            // console.log(data);
+            
+            // const oTestModel = this.getView().getModel("TestModel");
+            // oTestModel.setProperty("/cartItems", data)
 
             try {
                 const oModel = this.getView().getModel();
@@ -87,6 +88,23 @@ sap.ui.define([
                     console.log("Deletion Error: ",oError);
                 });
             }
+            this._updateTotalAmount();
+        },
+
+        _updateTotalAmount: function() {
+            const oTable = this.getView().byId("cartTable");
+            const aItems = oTable.getItems();
+            let fTotalAmount = 0;
+
+            aItems.forEach(function (oItem) {
+                const oContext = oItem.getBindingContext();
+                const fTotalPrice = parseFloat(oContext.getProperty("totalPrice"));
+                fTotalAmount += fTotalPrice;
+            });
+
+            const oTestModel = this.getView().getModel("TestModel");
+            oTestModel.setProperty("/fTotalAmount", fTotalAmount);
+            oTestModel.refresh();
         },
 
         handleFullScreen: function () {

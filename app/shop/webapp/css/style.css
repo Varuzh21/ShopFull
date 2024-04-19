@@ -6,3 +6,15 @@
 .sapMFlexItemAlignAuto .sapMFlexBoxBGTransparent .sapMFlexItem{
     text-align: center;
 }
+
+.sapUiSizeCompact .sapFShellBar{
+    height: 2.25rem;
+}
+
+.sapUiTinyMargin{
+    margin: 0 !important;
+}
+
+#__button4{
+    margin-bottom: 25px;
+}
