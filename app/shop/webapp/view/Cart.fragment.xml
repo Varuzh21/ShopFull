@@ -110,15 +110,11 @@
                                         class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
                                     >
                                         <Title
-                                            text="{TestModel>/fTotalAmount}" 
+                                            text="{TestModel>/fTotalAmount} "
                                         />
+                                        <Text text="{TestModel>/oItem}" />
                                     </VBox>
                                 </HBox>
-                                <VBox>
-                                    <!-- <Text
-                                        text="{= 'Total ' + ${totalPrice} }"
-                                    /> -->
-                                </VBox>
                             </CustomListItem>
                         </List>
                     </f:content>

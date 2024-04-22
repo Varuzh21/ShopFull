@@ -30,7 +30,7 @@ sap.ui.define([
             const fTotalPrice = iQuantity * fPrice;
             oContext.getObject().totalPrice = fTotalPrice;
             oContext.setProperty("totalPrice", fTotalPrice);
-            this._updateTotalAmount();
+            this._updateTotalAmount(fPrice);
             oContext.getModel().refresh();  
         },
         
@@ -38,8 +38,6 @@ sap.ui.define([
             const oTable = this.getView().byId("cartTable");
             const aItems = oTable.getItems();
             const aItemsData = [];
-            // const data = [];
-            // const rows = [];
             let fTotalAmount = 0;
 
             aItems.forEach(function (oItem) {
@@ -52,16 +50,7 @@ sap.ui.define([
                     quantity: oItemData.quantity,
                     totalPrice: oItemData.totalPrice
                 })
-                
-                // data.push({
-                //     fTotalAmount: fTotalAmount,
-                //     totalPrice: oItemData.totalPrice
-                // })
             });
-            // console.log(data);
-            
-            // const oTestModel = this.getView().getModel("TestModel");
-            // oTestModel.setProperty("/cartItems", data)
 
             try {
                 const oModel = this.getView().getModel();
@@ -88,10 +77,9 @@ sap.ui.define([
                     console.log("Deletion Error: ",oError);
                 });
             }
-            this._updateTotalAmount();
         },
 
-        _updateTotalAmount: function() {
+        _updateTotalAmount: function(oItem) {
             const oTable = this.getView().byId("cartTable");
             const aItems = oTable.getItems();
             let fTotalAmount = 0;
@@ -102,8 +90,10 @@ sap.ui.define([
                 fTotalAmount += fTotalPrice;
             });
 
+            const Items = [fTotalAmount, oItem]
+
             const oTestModel = this.getView().getModel("TestModel");
-            oTestModel.setProperty("/fTotalAmount", fTotalAmount);
+            oTestModel.setProperty("/fTotalAmount", Items);
             oTestModel.refresh();
         },
 
