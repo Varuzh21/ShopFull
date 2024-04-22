@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/f/library",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
-], function(Controller, fLibrary, JSONModel, MessageBox) {
+    "sap/m/MessageBox",
+    "sap/ui/util/Storage"
+], function(Controller, fLibrary, JSONModel, MessageBox, Storage) {
     'use strict';
     
     return Controller.extend("com.shop.controller.Cart",{
@@ -53,6 +54,7 @@ sap.ui.define([
             });
 
             try {
+                this.generatePDF(aItemsData)
                 const oModel = this.getView().getModel();
                 const oBindingContext = oModel.bindContext('/addOrderItem(...)')
                 oBindingContext.setParameter("allProductCart", aItemsData);
@@ -61,6 +63,40 @@ sap.ui.define([
             } catch (error) {
                 console.error(error);
             }
+        },
+
+        generatePDF: function(data){
+            console.log(data);
+            const rows = [];
+            data.forEach(function (item) {
+                const row = [];
+                Object.keys(item).forEach(function (key) {
+                row.push(item[key]);
+            });
+                rows.push(row);
+            });
+
+            const docDefinition = {
+                content: [
+                    {
+                        style: "header",
+                        alignment: "center",
+                        text: "Shop"
+                    }
+                    , {
+                table: {
+                    headerRows: 1,
+                    widths: ["*", "*","*"],
+                    body: [
+                        ["Id",  "Quantity", "Total Price"],
+                         ...rows
+                    ]
+                }
+            }
+        ]
+    };
+            const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+                pdfDocGenerator.download("table.pdf");
         },
 
         onDelete: function(oEvent){

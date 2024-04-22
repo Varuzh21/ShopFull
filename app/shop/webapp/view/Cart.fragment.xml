@@ -110,9 +110,19 @@
                                         class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
                                     >
                                         <Title
-                                            text="{TestModel>/fTotalAmount} "
+                                            text="{
+                                            path: 'TestModel>/fTotalAmount',
+                                            formatOptions: {
+                                               preserveDecimals : true
+                                            }
+                                         }"
                                         />
-                                        <Text text="{TestModel>/oItem}" />
+                                        <Text text="{
+                                            path: 'TestModel>/oItem',
+                                            formatOptions: {
+                                                preserveDecimals : true
+                                            }
+                                        }" />
                                     </VBox>
                                 </HBox>
                             </CustomListItem>
