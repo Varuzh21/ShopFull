@@ -64,7 +64,7 @@
 
                         <Title text="{price}" />
 
-                        <Text text="{totalPrice}" />
+                        <Text text="{totalPrice}"/>
 
                         <StepInput
                             id="CurrentValue"
@@ -91,15 +91,16 @@
                     class="sapUiMediumMargin"
                     width="90%"
                     height="auto"
-                    binding="TestModel>/fTotalAmount"
                 >
                     <f:header>
                         <card:Header title="Different Values" />
                     </f:header>
                     <f:content>
                         <List
+                            id="cardList"
                             class="sapUiSmallMarginBottom"
                             showSeparators="None"
+                            items="{ path: '/ShopCartCalculetedTotalValue' }"
                         >
                             <CustomListItem>
                                 <HBox
@@ -109,20 +110,20 @@
                                     <VBox
                                         class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
                                     >
-                                        <Title
+                                        <!-- <Text
                                             text="{
-                                            path: 'TestModel>/fTotalAmount',
-                                            formatOptions: {
-                                               preserveDecimals : true
-                                            }
-                                         }"
-                                        />
-                                        <Text text="{
-                                            path: 'TestModel>/oItem',
-                                            formatOptions: {
-                                                preserveDecimals : true
-                                            }
-                                        }" />
+                                            path: 'TestModel>/oItem'
+                                        }"
+                                        /> -->
+                                        <VBox>
+                                            <Title
+                                            text="{
+                                                parts: ['subTotal','TestModel>/currency'],
+                                                type:'sap.ui.model.type.Currency',
+                                                formatOptions: {showMeasure: true, maxFractionDigits: 2, minFractionDigits: 2, preserveDecimals: false}
+                                            }"
+                                            />
+                                        </VBox>
                                     </VBox>
                                 </HBox>
                             </CustomListItem>

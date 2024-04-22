@@ -3,8 +3,7 @@ sap.ui.define([
     "sap/f/library",
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
-    "sap/ui/util/Storage"
-], function(Controller, fLibrary, JSONModel, MessageBox, Storage) {
+], function(Controller, fLibrary, JSONModel, MessageBox) {
     'use strict';
     
     return Controller.extend("com.shop.controller.Cart",{
@@ -12,7 +11,10 @@ sap.ui.define([
         onInit: function(){
             this.oRouter = this.getOwnerComponent().getRouter();
             this.getOwnerComponent().getRouter().getRoute("Cart").attachPatternMatched(this._onDetailMatch, this);
-            const model = new JSONModel();
+            const model = new JSONModel({
+                currency: "USD",
+                fTotalAmount: 0
+            });
             this.getView().setModel(model, "TestModel");
         },
            
@@ -31,8 +33,8 @@ sap.ui.define([
             const fTotalPrice = iQuantity * fPrice;
             oContext.getObject().totalPrice = fTotalPrice;
             oContext.setProperty("totalPrice", fTotalPrice);
-            this._updateTotalAmount(fPrice);
-            oContext.getModel().refresh();  
+            
+            this.getView().byId("cardList").getBinding('items').refresh()
         },
         
         chackOut: async function () {
@@ -66,7 +68,6 @@ sap.ui.define([
         },
 
         generatePDF: function(data){
-            console.log(data);
             const rows = [];
             data.forEach(function (item) {
                 const row = [];
@@ -84,7 +85,7 @@ sap.ui.define([
                         text: "Shop"
                     }
                     , {
-                table: {
+                FormData: {
                     headerRows: 1,
                     widths: ["*", "*","*"],
                     body: [
@@ -113,24 +114,7 @@ sap.ui.define([
                     console.log("Deletion Error: ",oError);
                 });
             }
-        },
-
-        _updateTotalAmount: function(oItem) {
-            const oTable = this.getView().byId("cartTable");
-            const aItems = oTable.getItems();
-            let fTotalAmount = 0;
-
-            aItems.forEach(function (oItem) {
-                const oContext = oItem.getBindingContext();
-                const fTotalPrice = parseFloat(oContext.getProperty("totalPrice"));
-                fTotalAmount += fTotalPrice;
-            });
-
-            const Items = [fTotalAmount, oItem]
-
-            const oTestModel = this.getView().getModel("TestModel");
-            oTestModel.setProperty("/fTotalAmount", Items);
-            oTestModel.refresh();
+            this.getView().byId("cardList").getBinding('items').refresh()
         },
 
         handleFullScreen: function () {

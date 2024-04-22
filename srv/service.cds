@@ -22,6 +22,10 @@ service ShopService {
             product.price * quantity as totalPrice: Double,
             product.ID as productID
         }
+    entity ShopCartCalculetedTotalValue as projection on ShopCartView{
+        sum(totalPrice) as subTotal: Double,
+        user.ID
+    }where user.ID = 'a246361d-90d7-4b4d-b1b4-29904c69d00a'
 
     action addShopCart(product_ID : UUID)                     returns String;
     action addOrderItem(allProductCart : array of Order_Items) returns String;
