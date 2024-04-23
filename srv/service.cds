@@ -1,6 +1,9 @@
 using shopfull as my from '../db/src/schema';
 
-service ShopService {
+service ShopService @(requires : [
+    'authenticated-user',
+    'admin'
+]) {
     entity Product      as projection on my.Product;
     entity Categoris    as projection on my.Categoris;
     entity User         as projection on my.User;

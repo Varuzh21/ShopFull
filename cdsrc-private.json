@@ -1,0 +1,57 @@
+{
+  "requires": {
+    "[varuzh]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "d190523atrial",
+          "space": "dev",
+          "instance": "Shop",
+          "key": "shop-skey",
+          "resolved": false
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      },
+      "auth": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "d190523atrial",
+          "space": "dev",
+          "instance": "Shop_uaa",
+          "key": "shop-uaa-skey",
+          "resolved": false
+        },
+        "kind": "basic",
+        "users": {
+          "Vauzh": {
+            "password": "admin",
+            "ID": "Vauzh",
+            "roles": ["admin"]
+          }
+        }
+      }
+    },
+    "[hybrid]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "d190523atrial",
+          "space": "dev",
+          "instance": "Shop",
+          "key": "shop-skey",
+          "resolved": false
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      }
+    }
+  }
+}

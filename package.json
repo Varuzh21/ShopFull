@@ -8,7 +8,8 @@
   "dependencies": {
     "@sap/cds": "^7",
     "@sap/xssec": "^3.6.1",
-    "express": "^4"
+    "express": "^4",
+    "html2pdf.js": "^0.9.0"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
@@ -17,17 +18,7 @@
   "scripts": {
     "start": "cds-serve",
     "deploy:sqlite": "cds deploy --to sqlite:shop.sqlite",
-    "watch-shop": "cds watch --open shop/webapp/index.html?sap-ui-xx-viewCache=false"
-
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "shop.sqlite"
-        }
-      }
-    }
+    "watch-shop": "cds watch --open shop/webapp/index.html?sap-ui-xx-viewCache=false",
+    "debloy:hana": "cds deploy --to hana:Shop"
   }
 }
